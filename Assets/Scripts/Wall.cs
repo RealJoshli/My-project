@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    public GameObject WallPiece;
-    public GameObject WallPiece2;
-    public GameObject Floor;
-    public GameObject Floor2;
+    public GameObject WallPiece; // Fügt ein öffentliches GameObject hinzu
+    public GameObject WallPiece2; // Fügt ein öffentliches GameObject hinzu
+    public GameObject Floor; // Fügt ein öffentliches GameObject hinzu
+    public GameObject Floor2; // Fügt ein öffentliches GameObject hinzu
     private int prob;
     private int t = 1;
     private int j = 1;
@@ -26,22 +26,22 @@ public class Wall : MonoBehaviour
             {
                 if (t > 0)
                 {
-                    Instantiate(Floor, new Vector3(((11 * x) + 5), 0, ((z * 11) + 5)), Quaternion.identity); // Boden wird platziert
-                    Instantiate(Floor, new Vector3(((11 * x) + 5), (z - 15), 5), Quaternion.identity); // Boden wir in der Mini-Map platziert
+                    Instantiate(Floor, new Vector3(((11 * x) + 5), 0, ((z * 11) + 5)), Quaternion.identity); // Boden wird in der Mini-Map platziert
+                    Instantiate(Floor, new Vector3(((11 * x) + 5), (z - 15), 5), Quaternion.identity); // Boden wir platziert
                 }
                 else // Für Abwechslung wird jeder Würfel anders gefärbt
                 {
-                    Instantiate(Floor2, new Vector3(((11 * x) + 5), 0, ((z * 11) + 5)), Quaternion.identity);
-                    Instantiate(Floor2, new Vector3(((11 * x) + 5), (z - 15), 5), Quaternion.identity);
+                    Instantiate(Floor2, new Vector3(((11 * x) + 5), 0, ((z * 11) + 5)), Quaternion.identity); // Minimap
+                    Instantiate(Floor2, new Vector3(((11 * x) + 5), (z - 15), 5), Quaternion.identity); // Map
                 }
             }
-            if (t > 0) // Die Decke der Würfel
+            if (t > 0) 
             {
-                Instantiate(Floor, new Vector3(((11 * x) + 5), -5, 5), Quaternion.identity);
+                Instantiate(Floor, new Vector3(((11 * x) + 5), -5, 5), Quaternion.identity); // Die Decke der Würfel
             }
-            else // Wieder mit Abwechslung
+            else 
             {
-                Instantiate(Floor2, new Vector3(((11 * x) + 5), -5, 5), Quaternion.identity);
+                Instantiate(Floor2, new Vector3(((11 * x) + 5), -5, 5), Quaternion.identity); // Zweite Decke in einer anderen Farbe
             }
             t *= -1;
         }
@@ -57,8 +57,8 @@ public class Wall : MonoBehaviour
                     {
                         for (int x = 0; x < 10; x++)
                         {
-                            Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, ((z * 11) + (v * 10))), Quaternion.identity); // Für den Würfel
-                            Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), (z - 14.5f), (10 * v)), Quaternion.identity); // Für die Mini-Map
+                            Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, ((z * 11) + (v * 10))), Quaternion.identity); // Für die Mini-Map
+                            Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), (z - 14.5f), (10 * v)), Quaternion.identity); // Für den Würfel
                         }
                     }
                 }
@@ -71,8 +71,8 @@ public class Wall : MonoBehaviour
                     {
                         for (int x = 0; x < 10; x++)
                         {
-                            Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, ((z * 11) + (v * 10))), Quaternion.identity); // Für den Würfel
-                            Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), (z - 14.5f), (10 * v)), Quaternion.identity); // Für die Mini-Map
+                            Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, ((z * 11) + (v * 10))), Quaternion.identity); // Für die Mini-Map
+                            Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), (z - 14.5f), (10 * v)), Quaternion.identity); // Für den Würfel
                         }
                     }
                 }
@@ -89,8 +89,8 @@ public class Wall : MonoBehaviour
                     {
                         for (int z = 0; z < 10; z++)
                         {
-                            Instantiate(WallPiece, new Vector3(((x * 11) + (10 * v)), 0.5f, ((z + 0.5f) + (11 * u))), Quaternion.Euler(0, 90, 0)); // Für den Würfel
-                            Instantiate(WallPiece, new Vector3(((v * 10) + (11 * x)), (u - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                            Instantiate(WallPiece, new Vector3(((x * 11) + (10 * v)), 0.5f, ((z + 0.5f) + (11 * u))), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                            Instantiate(WallPiece, new Vector3(((v * 10) + (11 * x)), (u - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für den Würfel
                         }
                     }
                 }
@@ -103,8 +103,8 @@ public class Wall : MonoBehaviour
                     {
                         for (int z = 0; z < 10; z++)
                         {
-                            Instantiate(WallPiece2, new Vector3(((x * 11) + (10 * v)), 0.5f, ((z + 0.5f) + (11 * u))), Quaternion.Euler(0, 90, 0)); // Für den Würfel
-                            Instantiate(WallPiece2, new Vector3(((v * 10) + (11 * x)), (u - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                            Instantiate(WallPiece2, new Vector3(((x * 11) + (10 * v)), 0.5f, ((z + 0.5f) + (11 * u))), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                            Instantiate(WallPiece2, new Vector3(((v * 10) + (11 * x)), (u - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für den Würfel
                         }
                     }
                 }
@@ -123,11 +123,11 @@ public class Wall : MonoBehaviour
                     {
                         for (int z = 0; z < 10; z++)
                         {
-                            prob = UnityEngine.Random.Range(1, 3);
+                            prob = UnityEngine.Random.Range(1, 3); // eine zufällige Zahle von 1 - 2 wird generiert und auf die Variable prob abgespeichert
                             if (prob == 1)
                             {
-                                Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, (z + (11 * v))), Quaternion.identity); // Für den Würfel
-                                Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), (v - 14.5f), z), Quaternion.identity); // Für die Mini-Map
+                                Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, (z + (11 * v))), Quaternion.identity); // Für die Mini-Map
+                                Instantiate(WallPiece, new Vector3(((x + 0.5f) + (11 * u)), (v - 14.5f), z), Quaternion.identity); // Für den Würfel
                             }
                         }
                     }
@@ -141,11 +141,11 @@ public class Wall : MonoBehaviour
                     {
                         for (int z = 0; z < 10; z++)
                         {
-                            prob = UnityEngine.Random.Range(1, 3);
+                            prob = UnityEngine.Random.Range(1, 3); // eine zufällige Zahle von 1 - 2 wird generiert und auf die Variable prob abgespeichert
                             if (prob == 1)
                             {
-                                Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, (z + (11 * v))), Quaternion.identity); // Für den Würfel
-                                Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), (v - 14.5f), z), Quaternion.identity); // Für die Mini-Map
+                                Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), 0.5f, (z + (11 * v))), Quaternion.identity); // Für die Mini-Map
+                                Instantiate(WallPiece2, new Vector3(((x + 0.5f) + (11 * u)), (v - 14.5f), z), Quaternion.identity); // Für den Würfel
                             }
                         }
                     }
@@ -163,11 +163,11 @@ public class Wall : MonoBehaviour
                     {
                         for (int z = 0; z < 10; z++)
                         {
-                            prob = UnityEngine.Random.Range(1, 3);
+                            prob = UnityEngine.Random.Range(1, 3); // eine zufällige Zahle von 1 - 2 wird generiert und auf die Variable prob abgespeichert
                             if (prob == 1)
                             {
-                                Instantiate(WallPiece, new Vector3(((x + 1) + (11 * u)), 0.5f, ((z + 0.5f) + (11 * v))), Quaternion.Euler(0, 90, 0)); // Für den Würfel
-                                Instantiate(WallPiece, new Vector3(((x + 1) + (11 * u)), (v - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                                Instantiate(WallPiece, new Vector3(((x + 1) + (11 * u)), 0.5f, ((z + 0.5f) + (11 * v))), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                                Instantiate(WallPiece, new Vector3(((x + 1) + (11 * u)), (v - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für den Würfel
                             }
                         }
                     }
@@ -181,11 +181,11 @@ public class Wall : MonoBehaviour
                     {
                         for (int z = 0; z < 10; z++)
                         {
-                            prob = UnityEngine.Random.Range(1, 3);
+                            prob = UnityEngine.Random.Range(1, 3); // eine zufällige Zahle von 1 - 2 wird generiert und auf die Variable prob abgespeichert
                             if (prob == 1)
                             {
-                                Instantiate(WallPiece2, new Vector3(((x + 1) + (11 * u)), 0.5f, ((z + 0.5f) + (11 * v))), Quaternion.Euler(0, 90, 0)); // Für den Würfel
-                                Instantiate(WallPiece2, new Vector3(((x + 1) + (11 * u)), (v - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                                Instantiate(WallPiece2, new Vector3(((x + 1) + (11 * u)), 0.5f, ((z + 0.5f) + (11 * v))), Quaternion.Euler(0, 90, 0)); // Für die Mini-Map
+                                Instantiate(WallPiece2, new Vector3(((x + 1) + (11 * u)), (v - 14.5f), (z + 0.5f)), Quaternion.Euler(0, 90, 0)); // Für den Würfel
                             }
                         }
                     }
