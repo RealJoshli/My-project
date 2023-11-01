@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EndScore : MonoBehaviour
 {
-    public TMP_Text tMP_Text;
+    public TMP_Text tMP_Text; // Öffentliches Textobjekt
     
     // Start is called before the first frame update
     public void SetTheScore(int score) // Öffentliche Funktion

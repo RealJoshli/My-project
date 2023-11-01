@@ -20,7 +20,7 @@ public class Wall : MonoBehaviour
     void Start()
     {
         // Böden
-        for (int x = 0; x < 10; x++)
+        for (int x = 0; x < 10; x++) // Wird ausgeführt solange x kleiner als 10 ist und setzt x jede Runde um 1 höher
         {
             for (int z = 0; z < 10; z++)
             {
